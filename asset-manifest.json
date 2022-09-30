@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/weather-informer/static/css/main.6c02728f.css",
+    "main.js": "/weather-informer/static/js/main.6c152d9d.js",
+    "index.html": "/weather-informer/index.html",
+    "main.6c02728f.css.map": "/weather-informer/static/css/main.6c02728f.css.map",
+    "main.6c152d9d.js.map": "/weather-informer/static/js/main.6c152d9d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c02728f.css",
+    "static/js/main.6c152d9d.js"
+  ]
+}
