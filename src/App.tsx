@@ -1,14 +1,21 @@
 import React, { useEffect, useState } from "react";
-import { getCountryCoords } from './api/api'
-import { Header } from './components/Header'
+import { getCountryCoords } from './api/api';
+import { Main } from './components/Main';
+import { Header } from './components/Header';
+import { Loader } from "./components/Loader";
+// import { Battery } from "./Battery/Battery";
+
+import './main.scss';
+fetch('https://api.sypexgeo.net/').then(res => res.json()).then(res => console.log(res))
+
 
 export const App: React.FC = () => {
-  const [currentCountry, setCurrentCountry] = useState(null);
+  const [currentIp, setCurrentIp] = useState<any>(null);
 
   async function loadData() {
-    const a = await getCountryCoords('kropyvnytskyi');
+    const ip = await fetch('https://api.sypexgeo.net/').then(res => res.json()).then(res => res);
 
-    setCurrentCountry(a[0]);
+    setCurrentIp(ip)
   }
 
   useEffect(() => {
@@ -16,6 +23,16 @@ export const App: React.FC = () => {
   }, [])
 
   return (
-    currentCountry && <Header currentCountry={currentCountry} />
+    <>
+      {currentIp
+        ? (
+          <>
+            <Header />
+            <Main currentIp={currentIp} />
+          </>
+        )
+        : (<Loader />)}
+
+    </>
   );
 }
