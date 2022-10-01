@@ -1,0 +1,49 @@
+.weatherInfo__info {
+
+  .photo {
+    width: 150px;
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .weatherInfo__temp {
+    justify-self: center;
+    align-self: center;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 36px;
+  }
+}
+
+.weatherInfo__wrapper-main-info {
+  display: flex;
+}
+
+.weatherInfo__sunTime {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.wrapper__sunTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sun {
+  background-image: url('../../video/sun.gif');
+}
+
+.storm {
+  background-image: url('../../video/storm.gif');
+}
+
+.rain {
+  background-image: url('../../video/rain.gif');
+}
+
+.cloud {
+  background-image: url('../../video/clouds.gif');
+}
