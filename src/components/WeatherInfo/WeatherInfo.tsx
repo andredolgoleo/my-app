@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { CurrentData } from '../CurrentDate';
 import './WeatherInfo.scss'
 import classnames from 'classnames'
 
@@ -15,8 +16,6 @@ export const WeatherInfo: React.FC<Props> = ({ weatherInfo }) => {
   const [sun, setSun] = useState('');
   const [cloud, setCloud] = useState('');
 
-  // console.log(weatherInfo.weather[0].main.toLowerCase());
-
   function weather() {
 
     switch (weatherInfo.weather[0].main.toLowerCase()) {
@@ -27,12 +26,14 @@ export const WeatherInfo: React.FC<Props> = ({ weatherInfo }) => {
         return setRain(weatherInfo.weather[0].main);
 
       case ('thunderstorm'):
-        return setRain(weatherInfo.weather[0].main);
+        return setStorm(weatherInfo.weather[0].main);
 
       default:
         return setSun(weatherInfo.weather[0].main);
     }
-  }
+  };
+
+
 
   const sunSet = weatherInfo.sys.sunset;
   const sunSetTime = new Date(sunSet * 1000);
@@ -43,7 +44,7 @@ export const WeatherInfo: React.FC<Props> = ({ weatherInfo }) => {
   const sunRaiseTime = new Date(sunRaise * 1000);
   const sunRaiseHours = sunRaiseTime.getHours();
   const sunRaiseMinutes = sunRaiseTime.getMinutes();
-  console.log(weatherInfo);
+
 
 
   useEffect(() => {
@@ -52,6 +53,7 @@ export const WeatherInfo: React.FC<Props> = ({ weatherInfo }) => {
 
   return (
     <>
+      <CurrentData />
       <div className='weatherInfo__info'>
         <div className="weatherInfo__wrapper-main-info">
           <p className='weatherInfo__temp'>{Math.floor(temp)}&#176;C</p>

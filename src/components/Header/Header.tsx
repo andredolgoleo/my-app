@@ -1,10 +1,14 @@
 import React from 'react';
 
-export const Header: React.FC = () => {
+type Props = {
+  userName: string;
+}
+
+export const Header: React.FC<Props> = ({ userName }) => {
 
   return (<>
     <header>
-      <h1>Hi user!</h1>
+      <h1>Hi {userName}!</h1>
     </header>
   </>);
 };

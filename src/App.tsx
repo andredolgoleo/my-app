@@ -6,11 +6,11 @@ import { Loader } from "./components/Loader";
 // import { Battery } from "./Battery/Battery";
 
 import './main.scss';
-fetch('https://api.sypexgeo.net/').then(res => res.json()).then(res => console.log(res))
-
 
 export const App: React.FC = () => {
   const [currentIp, setCurrentIp] = useState<any>(null);
+  const [value, setValue] = useState('');
+
 
   async function loadData() {
     const ip = await fetch('https://api.sypexgeo.net/').then(res => res.json()).then(res => res);
@@ -24,15 +24,31 @@ export const App: React.FC = () => {
 
   return (
     <>
-      {currentIp
-        ? (
-          <>
-            <Header />
-            <Main currentIp={currentIp} />
-          </>
-        )
-        : (<Loader />)}
-
+      {currentIp ? (localStorage.getItem('name') ? (
+        currentIp
+          ? (
+            <>
+              <Header userName={localStorage.getItem('name') || ''} />
+              <Main currentIp={currentIp} />
+            </>
+          )
+          : (<Loader />)
+      ) : (
+        <>
+          <h1>Hello! Enter your name!</h1>
+          <form
+            onSubmit={event => {
+              event.preventDefault();
+              localStorage.setItem('name', value);
+              setValue('')
+            }}
+            action="">
+            <input type="text" value={value} onInput={((event: any) => setValue(event.target.value))} />
+            <button>Click</button>
+          </form>
+        </>
+      )) : (<Loader />)
+}
     </>
   );
 }
