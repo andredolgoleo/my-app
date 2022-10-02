@@ -6,6 +6,7 @@
     "static/media/clouds.gif": "/my-weather-informer/static/media/clouds.03a367d9729bb1d492c7.gif",
     "static/media/storm.gif": "/my-weather-informer/static/media/storm.75168d1dfd61a981c7d5.gif",
     "static/media/rain.gif": "/my-weather-informer/static/media/rain.4989ef4e5e9d3d6be154.gif",
+    "service-worker.js": "/my-weather-informer/service-worker.js",
     "index.html": "/my-weather-informer/index.html",
     "main.e4d95108.css.map": "/my-weather-informer/static/css/main.e4d95108.css.map",
     "main.28d44d22.js.map": "/my-weather-informer/static/js/main.28d44d22.js.map"
